@@ -152,6 +152,16 @@
         <item>One Person Company(OPC)  </item>
         <item>Company(other than OPC)  </item>
     </string-array>
+    <string name="aText">Startup India is a flagship initiative of the government of India,intended to build a Strong eco-system for nurturing innovation and Startups in the country.Under this initiative a Startup India Portal has been set up which shall serve as a platform for facilitation of Startup Recognition,access to information related to incubators,mentors,Angel Funds,Venture Funds etc.</string>
+    <string name="aText1">As a step ahead,we are looking forward to provide advertisement space for Startups on Startup India portal.If you are a Startup and wish to advertise your product/services with us ,send us the requisite information in the format prescribed below.</string>
+    <string name="fusionCharts">Fusion Charts</string>
+    <string name="FuseText">FusionCharts helps you create animated and interactive Flash charts for web and desktop applications</string>
+    <string name="Adstring">AdstringO Private Limited</string>
+    <string name="AdstringText">Worlds Fastest Mobile and Web Compression Software</string>
+    <string name="Unacademy">Unacademy</string>
+    <string name="UnacademyText">Yes we are.We are loud proud,ambitious,and greedy.We are Unacademy.And we will revolutionise Indian education.</string>
+    <string name="Pfizer">Pfizer IIT Delhi Innovation and IP Program</string>
+    <string name="PfizerText">The Pfizer IIT-Delhi Innovation and IP Program is an industry-academia collaboration that is supported by the "Startup India" program.An endeavor that will contribute to the realization of these important ambitions for India</string>
     <string name="incorporate">Incorporation of</string>
     <string name="agelimit">Age is more than 70</string>
     <string name="age">AGE</string>
