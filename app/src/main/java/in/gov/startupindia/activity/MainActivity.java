@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                         toolbar.setTitle("Company Registration");
                         break;
                     case 3:
-                        viewPager.setCurrentItem(2);
+                        viewPager.setCurrentItem(3);
                         toolbar.setTitle("Action Plan");
                         break;
                     case 4:

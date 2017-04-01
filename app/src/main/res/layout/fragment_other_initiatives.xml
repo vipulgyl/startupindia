@@ -6,7 +6,7 @@
     android:fillViewport="true"
     android:scrollbars = "vertical"
     android:scrollbarStyle="insideInset"
-    android:background="#0E0128">
+    android:background="@color/cardBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:layout_marginRight="7dp"
             card_view:cardCornerRadius="20dp"
             card_view:contentPadding="10dp"
-            card_view:cardBackgroundColor="#443661">
+            card_view:cardBackgroundColor="@color/cardColor">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:textStyle="bold"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/cardText"
                     android:text="States"
                     android:textSize="12dp"
                     android:layout_centerHorizontal="true"
@@ -59,7 +59,7 @@
             android:layout_marginRight="7dp"
             card_view:cardCornerRadius="20dp"
             card_view:contentPadding="10dp"
-            card_view:cardBackgroundColor="#443661">
+            card_view:cardBackgroundColor="@color/cardColor">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:textStyle="bold"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/cardText"
                     android:text="SIDBI"
                     android:textSize="12dp"
                     android:layout_centerHorizontal="true"
@@ -92,7 +92,7 @@
             android:layout_marginRight="7dp"
             card_view:cardCornerRadius="20dp"
             card_view:contentPadding="10dp"
-            card_view:cardBackgroundColor="#443661">
+            card_view:cardBackgroundColor="@color/cardColor">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:textStyle="bold"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/cardText"
                     android:text="Initiative by Banks"
                     android:textSize="12dp"
                     android:layout_centerHorizontal="true"

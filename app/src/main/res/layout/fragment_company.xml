@@ -12,7 +12,7 @@
         android:layout_marginLeft="20dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/incorporate"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/cardText"/>
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

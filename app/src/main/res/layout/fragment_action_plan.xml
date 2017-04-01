@@ -6,7 +6,7 @@
     android:fillViewport="true"
     android:scrollbars = "vertical"
     android:scrollbarStyle="insideInset"
-    android:background="#0E0128">
+    android:background="@color/cardBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_marginRight="7dp"
             card_view:cardCornerRadius="2dp"
             card_view:contentPadding="10dp"
-            card_view:cardBackgroundColor="#443661">
+            card_view:cardBackgroundColor="@color/cardColor">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:textStyle="bold"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/cardText"
                     android:text="Startup India Action Plan"
                     android:textSize="15dp" />
                 <View
@@ -53,7 +53,7 @@
                     android:layout_marginTop="15dp"
                     android:textSize="10dp"
                     android:text="@string/startup_india_action_plan"
-                    android:textColor="#ffffff" />
+                    android:textColor="@color/cardText" />
 
                 <ImageView
                     android:id="@+id/next1"
@@ -76,7 +76,7 @@
             android:layout_marginRight="7dp"
             card_view:cardCornerRadius="2dp"
             card_view:contentPadding="10dp"
-            card_view:cardBackgroundColor="#443661">
+            card_view:cardBackgroundColor="@color/cardColor">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:textStyle="bold"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/cardText"
                     android:text="Status Report"
                     android:textSize="15dp" />
 
@@ -100,7 +100,7 @@
                     android:layout_marginTop="15dp"
                     android:textSize="10dp"
                     android:text="@string/status_report"
-                    android:textColor="#ffffff" />
+                    android:textColor="@color/cardText" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -117,14 +117,14 @@
                     android:layout_height="wrap_content"
                     card_view:cardCornerRadius="20dp"
                     android:layout_centerHorizontal="true"
-                    card_view:cardBackgroundColor="#000000">
+                    card_view:cardBackgroundColor="@color/cardColor">
 
                     <TextView
                         android:id="@+id/tv_status_report"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/cardText"
                         android:text="   Status report on Startup India   "
                         android:textSize="10dp" />
 
@@ -143,7 +143,7 @@
             android:layout_marginRight="7dp"
             card_view:cardCornerRadius="2dp"
             card_view:contentPadding="10dp"
-            card_view:cardBackgroundColor="#443661">
+            card_view:cardBackgroundColor="@color/cardColor">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:textStyle="bold"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/cardText"
                     android:text="Notification"
                     android:textSize="15dp" />
 
@@ -167,7 +167,7 @@
                     android:layout_marginTop="15dp"
                     android:textSize="10dp"
                     android:text="@string/notification"
-                    android:textColor="#ffffff" />
+                    android:textColor="@color/cardText" />
 
                 <View
                     android:layout_width="match_parent"
