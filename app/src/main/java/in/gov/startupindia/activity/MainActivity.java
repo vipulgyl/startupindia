@@ -45,6 +45,32 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
 
+    int[] tabIconsOrange = {
+            R.drawable.ic_home_orange,
+            R.drawable.ic_services_orange,
+            R.drawable.ic_companyregistration_orange,
+            R.drawable.ic_actionplan_orange,
+            R.drawable.ic_information_orange,
+            R.drawable.ic_initiatives_orange,
+            R.drawable.ic_news_orange,
+            R.drawable.ic_learning_orange,
+            R.drawable.ic_learningprogram_orange,
+            R.drawable.ic_connect_orange
+    };
+
+    int[] tabIconsWhite = {
+            R.drawable.ic_home_white,
+            R.drawable.ic_services_white,
+            R.drawable.ic_companyregistration_white,
+            R.drawable.ic_actionplan_white,
+            R.drawable.ic_information_white,
+            R.drawable.ic_initiatives_white,
+            R.drawable.ic_news_white,
+            R.drawable.ic_learning_white,
+            R.drawable.ic_learningprogram_white,
+            R.drawable.ic_connect_white
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,10 +115,6 @@ public class MainActivity extends AppCompatActivity {
                     //Replacing the main content with ContentFragment Which is our Inbox View;
                     case R.id.home:
                         viewPager.setCurrentItem(0);
-                        //OneFragment fragment = new OneFragment();
-                        //android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        //fragmentTransaction.replace(R.id., fragment);
-                        //fragmentTransaction.commit();
                         return true;
 
                     // For rest of the options we just show a toast on click
@@ -140,42 +162,60 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
                         viewPager.setCurrentItem(0);
                         toolbar.setTitle("Home");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
                         break;
                     case 1:
                         viewPager.setCurrentItem(1);
                         toolbar.setTitle("StartUp India Services");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
+
                         break;
                     case 2:
                         viewPager.setCurrentItem(2);
                         toolbar.setTitle("Company Registration");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
+
                         break;
                     case 3:
                         viewPager.setCurrentItem(3);
                         toolbar.setTitle("Action Plan");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
+
                         break;
                     case 4:
                         viewPager.setCurrentItem(4);
                         toolbar.setTitle("Information");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
+
                         break;
                     case 5:
                         viewPager.setCurrentItem(5);
                         toolbar.setTitle("Other Initiatives");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
+
                         break;
                     case 6:
                         viewPager.setCurrentItem(6);
                         toolbar.setTitle("Events and News");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
+
                         break;
                     case 7:
                         viewPager.setCurrentItem(7);
                         toolbar.setTitle("Learning & Development");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
+
                         break;
                     case 8:
                         viewPager.setCurrentItem(8);
                         toolbar.setTitle("Learning Program App");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
+
                         break;
                     case 9:
                         viewPager.setCurrentItem(9);
                         toolbar.setTitle("Connect");
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsOrange[tab.getPosition()]);
                         break;
                 }
             }
@@ -187,7 +227,38 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
+                switch (tab.getPosition()){
+                    case 0:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                    case 1:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                    case 2:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                    case 3:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                    case 4:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                    case 5:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                    case 6:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                    case 7:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                    case 8:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                    case 9:
+                        tabLayout.getTabAt(tab.getPosition()).setIcon(tabIconsWhite[tab.getPosition()]);
+                        break;
+                }
             }
         });
 
@@ -280,29 +351,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setupTabIcons() {
-        int[] tabIcons = {
-                R.drawable.ic_tab_favourite,
-                R.drawable.ic_tab_call,
-                R.drawable.ic_tab_contacts,
-                R.drawable.ic_assignment_return_white_24dp,
-                R.drawable.ic_swap_vert_white_24dp,
-                R.drawable.ic_compare_arrows_white_24dp,
-                R.drawable.ic_flight_takeoff_white_24dp,
-                R.drawable.ic_launch_white_24dp,
-                R.drawable.ic_pageview_white_24dp,
-                R.drawable.ic_settings_overscan_white_24dp
-        };
 
-        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
-        tabLayout.getTabAt(4).setIcon(tabIcons[4]);
-        tabLayout.getTabAt(5).setIcon(tabIcons[5]);
-        tabLayout.getTabAt(6).setIcon(tabIcons[6]);
-        tabLayout.getTabAt(7).setIcon(tabIcons[7]);
-        tabLayout.getTabAt(8).setIcon(tabIcons[8]);
-        tabLayout.getTabAt(9).setIcon(tabIcons[9]);
+        tabLayout.getTabAt(0).setIcon(tabIconsOrange[0]);
+        tabLayout.getTabAt(1).setIcon(tabIconsWhite[1]);
+        tabLayout.getTabAt(2).setIcon(tabIconsWhite[2]);
+        tabLayout.getTabAt(3).setIcon(tabIconsWhite[3]);
+        tabLayout.getTabAt(4).setIcon(tabIconsWhite[4]);
+        tabLayout.getTabAt(5).setIcon(tabIconsWhite[5]);
+        tabLayout.getTabAt(6).setIcon(tabIconsWhite[6]);
+        tabLayout.getTabAt(7).setIcon(tabIconsWhite[7]);
+        tabLayout.getTabAt(8).setIcon(tabIconsWhite[8]);
+        tabLayout.getTabAt(9).setIcon(tabIconsWhite[9]);
 
     }
 
