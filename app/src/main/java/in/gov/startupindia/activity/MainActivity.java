@@ -1,6 +1,7 @@
 package in.gov.startupindia.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -339,11 +342,107 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId())
+        {
+            case R.id.action_settings:   return true;
+            case R.id.share:
+                Intent sharingIntent=new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT,"StartupIndia Application");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT,"http://play.google.com/store/apps/details?id=com.startupindia");
+                startActivity(Intent.createChooser(sharingIntent,"Share via"));
+                break;
+            case R.id.web:Toast.makeText(this, "Web_View displaying Webpages", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setTitle("Website Policy");
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                WebView wv = new WebView(this);
+                wv.loadUrl("http://www.startupindia.gov.in/website-policy.php");
+                wv.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return true;
+                    }
+                });
+                alert.setView(wv);
+                alert.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
+                break;
+            case R.id.dis:
+                AlertDialog.Builder alert1 = new AlertDialog.Builder(this);
+                alert1.setTitle("Disclaimer");
+
+
+                WebView wv1 = new WebView(this);
+                wv1.loadUrl("http://www.startupindia.gov.in/disclaimer.php");
+                wv1.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return true;
+                    }
+                });
+                alert1.setView(wv1);
+                alert1.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                alert1.show();
+                break;
+            case R.id.terms:
+                AlertDialog.Builder alert2 = new AlertDialog.Builder(this);
+                alert2.setTitle("Terms of Use");
+
+                WebView wv2 = new WebView(this);
+                wv2.loadUrl("http://www.startupindia.gov.in/terms-of-use.php");
+                wv2.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return true;
+                    }
+                });
+                alert2.setView(wv2);
+                alert2.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                alert2.show();
+                break;
+            case R.id.help:
+                AlertDialog.Builder alert3 = new AlertDialog.Builder(this);
+                alert3.setTitle("Help");
+
+                WebView wv3 = new WebView(this);
+                wv3.loadUrl("http://www.startupindia.gov.in/help.php");
+                wv3.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return true;
+                    }
+                });
+                alert3.setView(wv3);
+                alert3.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                alert3.show();
+                break;
+
+
         }
 
         return super.onOptionsItemSelected(item);
