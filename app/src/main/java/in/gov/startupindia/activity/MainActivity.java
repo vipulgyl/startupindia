@@ -2,14 +2,18 @@ package in.gov.startupindia.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.SharedPreferencesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -19,6 +23,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
@@ -40,13 +45,15 @@ import in.gov.startupindia.fragments.LearningProgramMobileFragment;
 import in.gov.startupindia.fragments.OtherInitiativesFragment;
 import in.gov.startupindia.fragments.StartupIndiaServicesFragment;
 
+import static android.R.attr.id;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
+    static Toolbar toolbar;
+    static TabLayout tabLayout;
     private ViewPager viewPager;
-    private NavigationView navigationView;
-    private DrawerLayout drawerLayout;
+    static NavigationView navigationView;
+    static DrawerLayout drawerLayout;
 
     int[] tabIconsOrange = {
             R.drawable.ic_home_orange,
@@ -77,12 +84,34 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int chk=0;
+        int colorVal;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         checkInternet();
         getStarted();
         firebase();
+        SharedPreferences sharedPrefs =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        String color = sharedPrefs.getString(getString(R.string.color_key), getString(R.string.color_default));
+        char b=color.charAt(0);
+        for (int i = 1; i < 7; ++i)
+        {
+            char c = color.charAt(i);
+            int a = c;
+            if(!((a>=48 && a<=57) || (a>=65 && a<=70)||(a>=97 && a<=102)))
+                chk=1;
+        }
+        if (chk == 1 || color.length() != 7 || b!='#') {
+            colorVal = Color.parseColor("#000000");
+        }
+        else
+            colorVal = Color.parseColor(color);
+        new ColorSwitcher(colorVal);
     }
+
+
+
     public void getStarted () {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -342,17 +371,18 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId())
-        {
-            case R.id.action_settings:   return true;
+        switch (item.getItemId()) {
+
             case R.id.share:
-                Intent sharingIntent=new Intent(Intent.ACTION_SEND);
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                sharingIntent.putExtra(Intent.EXTRA_SUBJECT,"StartupIndia Application");
-                sharingIntent.putExtra(Intent.EXTRA_TEXT,"http://play.google.com/store/apps/details?id=com.startupindia");
-                startActivity(Intent.createChooser(sharingIntent,"Share via"));
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "StartupIndia Application");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, "http://play.google.com/store/apps/details?id=com.startupindia");
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
                 break;
-            case R.id.web:Toast.makeText(this, "Web_View displaying Webpages", Toast.LENGTH_SHORT).show();
+
+            case R.id.web:
+                Toast.makeText(this, "Web_View displaying Webpages", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setTitle("Website Policy");
 
@@ -374,6 +404,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 alert.show();
                 break;
+
             case R.id.dis:
                 AlertDialog.Builder alert1 = new AlertDialog.Builder(this);
                 alert1.setTitle("Disclaimer");
@@ -397,6 +428,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 alert1.show();
                 break;
+
             case R.id.terms:
                 AlertDialog.Builder alert2 = new AlertDialog.Builder(this);
                 alert2.setTitle("Terms of Use");
@@ -419,6 +451,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 alert2.show();
                 break;
+
             case R.id.help:
                 AlertDialog.Builder alert3 = new AlertDialog.Builder(this);
                 alert3.setTitle("Help");
@@ -442,9 +475,11 @@ public class MainActivity extends AppCompatActivity {
                 alert3.show();
                 break;
 
+            case R.id.action_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
 
         }
-
         return super.onOptionsItemSelected(item);
     }
 
